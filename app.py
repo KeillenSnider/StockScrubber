@@ -63,7 +63,7 @@ def home():
 
 #_________________________________________________________________________________________________________
 
-#Setup how login is used with user input.
+#Login code
 @app.route('/login', methods = ['GET', 'POST'])
 @nocache
 def login():
@@ -120,3 +120,42 @@ def register():
         #Username is taken throw and error
         else:
             return render_template('register.html', error = "Username is already taken")
+    
+
+    #If a GET show the page
+    return render_template('register.html')
+
+#_________________________________________________________________________________________________________
+
+#logout code
+@app.route('/logout')
+@nocache
+def logout():
+    #Clear the session data and return to the login page
+    session.clear()
+    return redirect(url_for('login'))
+
+#_________________________________________________________________________________________________________
+
+#Dashboard code
+@app.route('/dashboard')
+@nocache
+def dashboard():
+
+    #Check if a user is logged in
+    if 'username' not in session:
+        return redirect(url_for('login'))
+    
+    #Get the users id
+    user = database_stock_scrubber.get_user(session['username'])
+    user_id = user[0]
+    
+    #Get the users data
+    watchlist = database_stock_scrubber.get_watchlist(user_id)
+    alerts = database_stock_scrubber.get_alerts(user_id)
+
+    #Send the data to dashboard so it has the username and all the table information
+    return render_template('dashboard.html', username = session['username'], watchlist = watchlist, alerts = alerts)
+
+#_________________________________________________________________________________________________________
+

@@ -60,14 +60,10 @@ def create_user(username,password):
         connection.commit()
 
         connection.close()
-
-        print("User registered successfully")
         
         return True
     except:
         connection.close()
-
-        print("Username is already taken. Please choose a different username")
 
         return False
     
@@ -86,7 +82,6 @@ def verify_user(username, password):
 
     #If no user then ask them to register
     if not user:
-        print("Username not found. Plese register first.")
         return False
     
 

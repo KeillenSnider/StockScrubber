@@ -9,6 +9,8 @@ from datetime import timedelta, datetime
 from dotenv import load_dotenv
 import os
 
+#_________________________________________________________________________________________________________
+
 #Login required detector is needed
 from functools import wraps
 #Makes sure that the logged in user can not hit the back page button after logging out
@@ -32,6 +34,7 @@ def nocache(f):
     
     return decorated_function
 
+#_________________________________________________________________________________________________________
 
 load_dotenv()
 
@@ -43,3 +46,77 @@ app.permanent_session_lifetime = timedelta(minutes = 30)
 
 #Key used to create sessions
 app.secret_key = os.getenv('SECRET_KEY')
+
+#Make sure the database is setup    
+database_stock_scrubber.users_table()
+database_stock_scrubber.watchlist_table()
+database_stock_scrubber.alerts_table()
+
+#_________________________________________________________________________________________________________
+
+#Make the home page or where the url takes the user first
+@app.route('/')
+def home():
+    #Go to the login page
+    return redirect(url_for("login"))
+
+
+#_________________________________________________________________________________________________________
+
+#Setup how login is used with user input.
+@app.route('/login', methods = ['GET', 'POST'])
+@nocache
+def login():
+
+    #Check if it is a POST
+    if request.method == 'POST':
+
+        #get the user input
+        username = request.form['username']
+        password = request.form['password']
+
+
+        #Check if the user exists and the password is right
+        if database_stock_scrubber.verify_user(username, password):
+
+            #Create a session because it returned True
+            session.permanent = True
+            
+            #Give the session a username so it stays logged in on different pages
+            session['username'] = username
+
+            #Send them to the next page
+            return redirect(url_for('dashboard'))
+        
+        #If no match send an error
+        else:
+            #Show the login page but send the error variable
+            return render_template('login.html', error = "Invalid username or password")
+    
+
+    #If it is a GET then just show the page
+    return render_template('login.html')
+
+#_________________________________________________________________________________________________________
+
+#Register code
+@app.route('/register', methods = ['GET', 'POST'])
+@nocache
+def register():
+
+    #Check if it was a POST
+    if request.method == 'POST':
+
+        #Get the username and password
+        username = request.form['username']
+        password = request.form['password']
+
+        #Register the new user and see if the username is taken
+        if database_stock_scrubber.create_user(username, password):
+
+            #User is created and now they need toi login
+            return redirect(url_for(login))
+        
+        #Username is taken throw and error
+        else:
+            return render_template('register.html', error = "Username is already taken")

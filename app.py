@@ -3,11 +3,12 @@
 #Flask for the app, render templates for getting html in templates, redirect for auto taking to next page, url for so nothing breaks
 # request for getting if it is a post or get request, Sessions for keeping track if a user is logged in on every page
 # make response turns the route output into a response object so we can add the no-cache header
-from flask import Flask, render_template, redirect, url_for, request, session, make_response
+from flask import Flask, render_template, redirect, url_for, request, session, make_response, jsonify
 import database_stock_scrubber
 from datetime import timedelta, datetime
 from dotenv import load_dotenv
 import os
+import fetcher
 
 #_________________________________________________________________________________________________________
 
@@ -212,3 +213,28 @@ def delete(stock_id):
 
 #_________________________________________________________________________________________________________
 
+#Prices code. Return stock prices
+@app.route('/api/prices')
+@nocache
+@login_required
+def prices():
+
+    #use a Dictionary so yo can have key-value pairs
+    prices = {} 
+
+    #Get the users id
+    user = database_stock_scrubber.get_user(session['username'])
+    user_id = user[0]
+
+    watchlist = database_stock_scrubber.get_watchlist(user_id)
+
+    for stock in watchlist:
+        symbol = stock[2]
+        prices[symbol] = fetcher.price_check(symbol)
+    
+    return jsonify(prices)
+
+#_________________________________________________________________________________________________________
+
+if __name__ == "__main__":
+    app.run(debug= os.getenv('DEBUG', 'False') == 'True')

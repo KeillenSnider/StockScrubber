@@ -171,4 +171,44 @@ def dashboard():
 
 #_________________________________________________________________________________________________________
 
-@app.route('/app', methods = ['GET', 'POST'])
+#Add stock code
+@app.route('/add_stock', methods = ['GET', 'POST'])
+@nocache
+@login_required
+def add():
+
+    #If it is a POST
+    if request.method == 'POST':
+
+        #Get the users id
+        user = database_stock_scrubber.get_user(session['username'])
+        user_id = user[0]
+
+        #Get the data from the form
+        symbol = request.form['symbol']
+        threshold = float(request.form['threshold'])
+
+        #Add the stock to the database
+        database_stock_scrubber.add_stock(user_id, symbol, threshold)
+
+        return redirect(url_for('dashboard'))
+    
+    #If a GET
+    return render_template('add.html')
+
+#_________________________________________________________________________________________________________
+
+#Delete code
+@app.route('/remove_stock/<int:stock_id>')
+@nocache
+@login_required
+def delete(stock_id):
+
+    #Delete the job
+    database_stock_scrubber.delete_stock(stock_id)
+
+    #Reload the dashboard
+    return redirect(url_for('dashboard'))
+
+#_________________________________________________________________________________________________________
+

@@ -129,7 +129,7 @@ def watchlist_table():
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
             symbol TEXT NOT NULL,
-            threshold INTEGER NOT NULL
+            threshold FLOAT NOT NULL
         )
     """)
 

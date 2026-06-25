@@ -34,6 +34,21 @@ def nocache(f):
     
     return decorated_function
 
+
+#This is to check if a user is logged into a session
+def login_required(f):
+    @wraps(f)
+
+    def decorated_function(*args, **kwargs):
+
+        #Check if a user is logged in
+        if 'username' not in session:
+
+            return redirect(url_for('login'))
+        
+        return f(*args, **kwargs)
+    return decorated_function
+
 #_________________________________________________________________________________________________________
 
 load_dotenv()
@@ -115,7 +130,7 @@ def register():
         if database_stock_scrubber.create_user(username, password):
 
             #User is created and now they need toi login
-            return redirect(url_for(login))
+            return redirect(url_for('login'))
         
         #Username is taken throw and error
         else:
@@ -140,11 +155,8 @@ def logout():
 #Dashboard code
 @app.route('/dashboard')
 @nocache
+@login_required
 def dashboard():
-
-    #Check if a user is logged in
-    if 'username' not in session:
-        return redirect(url_for('login'))
     
     #Get the users id
     user = database_stock_scrubber.get_user(session['username'])
@@ -159,3 +171,4 @@ def dashboard():
 
 #_________________________________________________________________________________________________________
 
+@app.route('/app', methods = ['GET', 'POST'])

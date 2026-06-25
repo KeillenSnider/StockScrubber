@@ -187,10 +187,11 @@ def add():
 
         #Get the data from the form
         symbol = request.form['symbol']
+        name = request.form['name']
         threshold = float(request.form['threshold'])
 
         #Add the stock to the database
-        database_stock_scrubber.add_stock(user_id, symbol, threshold)
+        database_stock_scrubber.add_stock(user_id, symbol, name, threshold)
 
         return redirect(url_for('dashboard'))
     

@@ -129,6 +129,7 @@ def watchlist_table():
             id SERIAL PRIMARY KEY,
             user_id INTEGER REFERENCES users(id),
             symbol TEXT NOT NULL,
+            name TEXT DEFAULT NULL,
             threshold FLOAT NOT NULL
         )
     """)
@@ -140,15 +141,15 @@ def watchlist_table():
 
 
 #Add a stock to the watchlsit
-def add_stock(user_id, symbol, threshold):
+def add_stock(user_id, symbol, name, threshold):
 
     connection = get_connection()
 
     cursor = connection.cursor()
 
     cursor.execute("""
-        INSERT INTO watchlist(user_id, symbol, threshold) VALUES(%s, %s, %s)
-    """, (user_id, symbol, threshold))
+        INSERT INTO watchlist(user_id, symbol, name, threshold) VALUES(%s, %s, %s, %s)
+    """, (user_id, symbol, name, threshold))
 
     connection.commit()
 

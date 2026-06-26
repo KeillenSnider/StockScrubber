@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+
+    <!--Used to have the most amount characters so everyone can view it-->
+    <meta charset = "UTF-8">
+
+    <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
+    <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+    <title>Stock Scrubber Login</title>
+
+    <!--Used to download the Inter font to that it works-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!--Connects the file to the css file that has the styles-->
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class = "container">
+
+        <div class = "title">
+            <h1>Stock Scrubber Login</h1>
+        </div>
+
+        <!--Error message if it is passed in and make it red-->
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+
+        <form method = "POST" action = "/login">
+
+            <label for = "username">Username:</label>
+            <!--Where the input takes place id needs to match for, name is the key for when the form is submitted and what the input is under-->
+            <input type = "text" id = "username" name = "username" required>
+
+            <br><br>
+
+            <label for = "password">Password:</label>
+            <input type = "password" id = "password" name = "password" required>
+
+            <button type = "submit">Login</button>
+
+        </form>
+
+        <!--Link for if they need to make an account-->
+        <p>Don't have an account? <a href = "/register">Register here</a></p>
+
+    </div>
+
+</body>
+
+</html>

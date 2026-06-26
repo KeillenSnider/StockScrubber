@@ -168,7 +168,7 @@ def dashboard():
     alerts = database_stock_scrubber.get_alerts(user_id)
 
     #Send the data to dashboard so it has the username and all the table information
-    return render_template('dashboard.html', username = session['username'], watchlist = watchlist, alerts = alerts)
+    return render_template('dashboard.html', username = session['username'], watchlists = watchlist, alerts = alerts)
 
 #_________________________________________________________________________________________________________
 

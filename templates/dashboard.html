@@ -28,7 +28,7 @@
 
         <h3>Stock Watchlist</h3>
 
-        {% if not watchlist %}
+        {% if not watchlists %}
             <p>No stocks are being tracked right now. Please add one</p>
         {% endif %}
 
@@ -53,7 +53,7 @@
                 </tr>
 
                 <!--Loop through every tuple and diplay it in the table-->
-                {% for i in watchlist %}
+                {% for watchlist in watchlists %}
 
                     <tr>
 
@@ -84,16 +84,16 @@
                 </tr>
 
 
-                {% for i in alerts %}
+                {% for alert in alerts %}
 
                     <tr>
 
-                        <td>{{alerts[2]}}</td>
-                        <td>{{alerts[3]}}</td>
-                        <td>{{alerts[4]}}</td>
-                        <td>{{alerts[5]}}</td>
-                        <td>{{alerts[6]}}</td>
-                        <td>{{alerts[7]}}</td>
+                        <td>{{alert[2]}}</td>
+                        <td>{{alert[3]}}</td>
+                        <td>{{alert[4]}}</td>
+                        <td>{{alert[5]}}</td>
+                        <td>{{alert[6]}}</td>
+                        <td>{{alert[7]}}</td>
 
                     </tr>
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+
+    <!--Used to have the most amount characters so everyone can view it-->
+    <meta charset = "UTF-8">
+
+    <!--Tells the web to scale it to the device it is on and on a 1:1 scale so not zoomed in or out-->
+    <meta name = "viewport" content = "width= device-width, initial-scale = 1.0">
+
+    <title>Stock Scrubber Dashboard</title>
+
+    <!--Used to download the Inter font to that it works-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!--Connects the file to the css file that has the styles-->
+    <link rel = "stylesheet" href = "{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class = "container">
+
+        <h1>Add a Stock</h1>
+
+        <form method = "POST" action = "{{url_for('add')}}">
+
+            <label for = "symbol">Symbol of the Stock</label>
+            <br>
+            <input type = "text" id = "symbol" name = "symbol" required>
+            <br>
+
+
+            <label for = "name">Name of the Stock</label>
+            <br>
+            <input type = "text" id = "name" name = "name">
+            <br>
+
+
+            <label for = "threshold">Threshold of when you want to be notified with an alert</label>
+            <br>
+            <input type = "text" id = "threshold" name = "threshold" required>
+            <br>
+
+            <button type = "submit">Add Stock</button>
+
+        </form>
+
+        <p>Go back <a href = "{{url_for('dashboard')}}">Click here</a></p>
+
+    </div>
+
+</body>
+
+
+</html>

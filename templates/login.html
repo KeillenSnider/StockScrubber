@@ -33,15 +33,17 @@
         {% endif %}
 
 
-        <form method = "POST" action = "/login">
+        <form method = "POST" action = "{{url_for('login')}}">
 
             <label for = "username">Username:</label>
+            <br>
             <!--Where the input takes place id needs to match for, name is the key for when the form is submitted and what the input is under-->
             <input type = "text" id = "username" name = "username" required>
 
             <br><br>
 
             <label for = "password">Password:</label>
+            <br>
             <input type = "password" id = "password" name = "password" required>
 
             <br><br>
@@ -51,7 +53,7 @@
         </form>
 
         <!--Link for if they need to make an account-->
-        <p>Don't have an account? <a href = "/register">Register here</a></p>
+        <p>Don't have an account? <a href = "{{url_for('register')}}">Register here</a></p>
 
     </div>
 

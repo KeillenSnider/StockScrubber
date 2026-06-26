@@ -34,7 +34,7 @@
 
         <div class = "button">
 
-            <a href = "/add">Add a stock to track</a>
+            <a href = "{{url_for('add')}}">Add a stock to track</a>
 
         </div>
 
@@ -60,7 +60,7 @@
                         <td>{{watchlist[2]}}</td>
                         <td>{{watchlist[3]}}</td>
                         <td>{{watchlist[4]}}</td>
-                        <td><a href = "/remove_stock/{{watchlist[0]}}" onclick = "return confirm('Are you sure you want to delete this stock?')">Delete</a></td>
+                        <td><a href = "{{url_for('delete', stock_id = watchlist[0])}}" onclick = "return confirm('Are you sure you want to delete this stock?')">Delete</a></td>
 
                     </tr>
 
@@ -105,7 +105,7 @@
 
         <div class = "button">
 
-            <a href = "/logout">Logout</a>
+            <a href = "{{url_for('logout')}}">Logout</a>
 
         </div>
 

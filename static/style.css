@@ -49,7 +49,7 @@ body{
     /*Keeps it above all elemnts*/
     z-index: 1000;
 
-    background-color: #3c9c69;
+    background-color: #2d5a3d;
 
     /*Make the elements side by side*/
     display: flex;
@@ -72,6 +72,10 @@ body{
 
     padding: 10px;
 
+    color: white;
+
+    align-items: center;
+
 }
 
 
@@ -85,18 +89,22 @@ body{
 
     padding: 10px;
 
+    color: white;
+
+    align-items: center;
+
 }
 
 
-.button{
+.button a{
 
     background-color: transparent;
 
-    color: var(--accent);
+    color: rgb(143, 223, 143);
 
     padding: 10px;
 
-    border: 1px solid var(--accent);
+    border: 1px solid rgb(45, 167, 45);
 
     border-radius: 10px;
 
@@ -107,12 +115,12 @@ body{
 }
 
 
-.button:hover{
+.button a:hover{
 
     background-color: var(--accent);
 
     border-color: var(--accent-hover);
 
-    color: #1B2A22;
+    color: white;
 
 }

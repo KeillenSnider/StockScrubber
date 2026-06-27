@@ -1,0 +1,64 @@
+/*Variables*/
+:root {
+
+    /*Main text color*/
+    --text-primary: #1a1a1a;
+
+    /*Less important text*/
+    --text-secondary: #5a5a5a;
+
+    /*Buttons and links*/
+    --accent: #3a7d44;
+
+    /*Buttons and links when hovered*/
+    --accent-hover: #2d6035;
+
+    /*Lines and also border*/
+    --border: #c8c0b0;
+
+    /*Card shadows*/
+    --shadow: 4px 4px 12px rgba(0,0,0,0.15);
+
+}
+
+/*_______________________________________________________________________________________________________________________*/
+
+/*For all body's*/
+body{
+
+    background-color: #f5f0e8;
+
+    color: var(--text-primary);
+
+    font-family: "Inter", Arial, sans-serif;
+
+    /*100% of the screen*/
+    min-height: 100vh;
+
+}
+
+/*_______________________________________________________________________________________________________________________*/
+
+.navbar{
+
+    position: sticky;
+    
+    /*Stick to the top of the screen*/
+    top: 0;
+
+    /*Keeps it above all elemnts*/
+    z-index: 1000;
+
+    background-color: #1B2A22;
+
+    /*Make the elements side by side*/
+    display: flex;
+
+    /*Split between the left and right side*/
+    justify-content: space-between;
+
+    padding: 15px 10px;
+
+
+
+}

@@ -21,24 +21,38 @@
 
 <body>
 
-    <div class = "container-table">
+    <!--Used for the navigation bar at the top-->
+    <nav class = "navbar">
 
-        <!--Header for the dashboard page with there name-->
-        <div class = "title">
-            <h1>Welcome, {{username}}</h1>
+        <div class = "navleft">
+
+            <h2>Welcome, {{username}}</h2>
+
+            <div class = "button">
+                <a href = "{{url_for('add')}}">Add Stock</a>
+            </div>
+
         </div>
+
+        <div class = "navright">
+
+            <div class = "button">
+                <a href = "{{url_for('logout')}}">Logout</a>
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!--Seperate block-->
+    <div class = "container-table-one">
 
         <h3>Stock Watchlist</h3>
 
         {% if not watchlists %}
             <p>No stocks are being tracked right now. Please add one</p>
         {% endif %}
-
-        <div class = "button">
-
-            <a href = "{{url_for('add')}}">Add a stock to track</a>
-
-        </div>
 
         <div style = "overflow-x: auto;">
 
@@ -69,8 +83,14 @@
                 {% endfor %}
 
             </table>
+        </div>
+    </div>
 
+    <div class = "container-table-two">
 
+        <h3>Stock Alerts</h3>
+
+        <div style = "overflow-x: auto;">
             <!--Table for the Alerts-->
             <table>
 
@@ -102,12 +122,6 @@
                 {% endfor %}
 
             </table>
-
-        </div>
-
-        <div class = "button">
-
-            <a href = "{{url_for('logout')}}">Logout</a>
 
         </div>
 

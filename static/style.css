@@ -59,6 +59,60 @@ body{
 
     padding: 15px 10px;
 
+}
 
+
+.navleft{
+
+    display: flex;
+
+    gap: 20px;
+
+    text-align: left;
+
+    padding: 10px;
+
+}
+
+
+.navright{
+
+    display: flex;
+
+    gap: 20px;
+
+    text-align: right;
+
+    padding: 10px;
+
+}
+
+
+.button{
+
+    background-color: transparent;
+
+    color: var(--accent);
+
+    padding: 10px;
+
+    border: 1px solid var(--accent);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    transition: 0.4s ease;
+
+}
+
+
+.button:hover{
+
+    background-color: var(--accent);
+
+    border-color: var(--accent-hover);
+
+    color: #1B2A22;
 
 }

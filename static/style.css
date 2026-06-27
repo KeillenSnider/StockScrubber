@@ -17,7 +17,7 @@
     --border: #c8c0b0;
 
     /*Card shadows*/
-    --shadow: 4px 4px 12px rgba(0,0,0,0.15);
+    --shadow: 5px 5px 3px rgba(0,0,0,0.15);
 
 }
 
@@ -49,7 +49,7 @@ body{
     /*Keeps it above all elemnts*/
     z-index: 1000;
 
-    background-color: #2d5a3d;
+    background: linear-gradient(to right, #1B2A22 0%, #2E4A36 50%, #1B2A22 100%);
 
     /*Make the elements side by side*/
     display: flex;
@@ -57,7 +57,7 @@ body{
     /*Split between the left and right side*/
     justify-content: space-between;
 
-    padding: 15px 10px;
+
 
 }
 
@@ -68,13 +68,30 @@ body{
 
     gap: 20px;
 
-    text-align: left;
+    padding: 10px;
+
+    color: white;
+
+    align-items: center;
+
+    justify-content: left;
+
+}
+
+
+.navmiddle{
+
+    display: flex;
 
     padding: 10px;
 
     color: white;
 
     align-items: center;
+
+    border: 1px solid black;
+
+    justify-content: center;
 
 }
 
@@ -85,13 +102,13 @@ body{
 
     gap: 20px;
 
-    text-align: right;
-
     padding: 10px;
 
     color: white;
 
     align-items: center;
+
+    justify-content: right;
 
 }
 
@@ -122,5 +139,24 @@ body{
     border-color: var(--accent-hover);
 
     color: white;
+
+}
+
+/*_______________________________________________________________________________________________________________________*/
+
+.container-table-one{
+
+    background: linear-gradient(to right, #d7c7b4 0%, #8b6f55 50%, #3b2f2f 100%);
+
+    box-shadow: var(--shadow);
+
+}
+
+
+.container-table-two{
+
+    background: linear-gradient(to left, #d7c7b4 0%, #8b6f55 50%, #3b2f2f 100%);
+
+    box-shadow: var(--shadow);
 
 }

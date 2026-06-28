@@ -30,21 +30,14 @@
         <form method = "POST" action = "{{url_for('add')}}">
 
             <label for = "symbol">Symbol of the Stock</label>
-            <br>
             <input type = "text" id = "symbol" name = "symbol" required>
-            <br>
-
 
             <label for = "name">Name of the Stock</label>
-            <br>
             <input type = "text" id = "name" name = "name">
-            <br>
 
 
-            <label for = "threshold">Threshold of when you want to be notified with an alert</label>
-            <br>
-            <input type = "number" id = "threshold" name = "threshold" step = "0.01" placeholder = "Up to 2 decimals" required>
-            <br>
+            <label for = "threshold">Threshold of Alerts</label>
+            <input type = "number" id = "threshold" name = "threshold" step = "0.01" placeholder = "% Up to 2 decimals" required>
 
             <button type = "submit">Add Stock</button>
 

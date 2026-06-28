@@ -27,7 +27,7 @@
 
 a{
 
-    color: var(--accent);
+    color: #d0cbc4;
 
 }
 
@@ -36,6 +36,81 @@ a{
 .warning-text{
 
     color: #ff6b6b;
+
+}
+
+button{
+
+    display: block;
+
+    margin: auto;
+
+    background-color: #355242;
+
+    color: rgb(143, 223, 143);
+
+    padding: 10px 30px;
+
+    border: 1px solid rgb(45, 167, 45);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    transition: 0.4s ease;
+
+}
+
+
+button:hover{
+
+    background-color: var(--accent);
+
+    border-color: var(--accent-hover);
+
+    color: white;
+
+}
+
+
+.title{
+
+    color: #8b6f55;
+
+}
+
+
+input{
+
+    margin: 5px;
+
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid black;
+
+    border-radius: 10px;
+
+    background-color: white;
+
+    color: black;
+
+    /*So no overflow*/
+    box-sizing: border-box;
+
+}
+
+input:hover{
+
+    border-color: greenyellow;
+
+}
+
+
+label{
+
+    padding-left: 5px;
 
 }
 
@@ -260,7 +335,7 @@ table{
 
 }
 
-
+/*The titles of columns*/
 th{
 
     background-color: #1B2A22;
@@ -273,7 +348,7 @@ th{
 
 }
 
-
+/*The data in columns*/
 td{
 
     background-color: rgba(255,255,255,0.08);
@@ -287,5 +362,57 @@ td{
     border: 1px solid rgba(255,255,255,0.2);
 
     color: white;
+
+}
+
+
+/*_______________________________________________________________________________________________________________________*/
+
+.container{
+
+    min-height: 100vh;
+
+    /*Flex box*/
+    display: flex;
+
+    /*Makes i up and down not left and right*/
+    flex-direction: column;
+
+    /*Left and right*/
+    justify-content: center;
+
+    /*Up or down*/
+    align-items: center;
+
+    color: #f5f0e8;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
+
+}
+
+
+form{
+
+    background-color: #417352;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    color: #f5f0e8;
+
+    width: 300px;
+
+}
+
+form h2, form input{
+
+    margin-bottom: 15px;
+
+}
+
+form button{
+
+    margin-top: 10px;
 
 }

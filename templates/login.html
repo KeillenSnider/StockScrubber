@@ -24,29 +24,25 @@
     <div class = "container">
 
         <div class = "title">
-            <h1>Stock Scrubber Login</h1>
+            <h1>Stock Scrubber</h1>
         </div>
-
-        <!--Error message if it is passed in and make it red-->
-        {% if error %}
-            <p style="color: red;">{{ error }}</p>
-        {% endif %}
 
 
         <form method = "POST" action = "{{url_for('login')}}">
 
+            <h2 style = "text-align: center;">Login</h2>
+
+            <!--Error message if it is passed in and make it red-->
+            {% if error %}
+                <p style="color: #ff6b6b;">{{ error }}</p>
+            {% endif %}
+
             <label for = "username">Username:</label>
-            <br>
             <!--Where the input takes place id needs to match for, name is the key for when the form is submitted and what the input is under-->
             <input type = "text" id = "username" name = "username" required>
 
-            <br><br>
-
             <label for = "password">Password:</label>
-            <br>
             <input type = "password" id = "password" name = "password" required>
-
-            <br><br>
 
             <button type = "submit">Login</button>
 

@@ -23,10 +23,67 @@
 
 /*_______________________________________________________________________________________________________________________*/
 
+/*Used everywhere*/
+
+a{
+
+    color: var(--accent);
+
+}
+
+
+/* For errors */
+.warning-text{
+
+    color: #ff6b6b;
+
+}
+
+/*_______________________________________________________________________________________________________________________*/
+
+/*Delete buttons on the table*/
+
+.delete-link{
+
+    background-color: #1B2A22;
+
+    color: rgb(143, 223, 143);
+
+    padding: 5px;
+
+    border: 1px solid rgb(45, 167, 45);
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    transition: 0.4s ease;
+
+}
+
+.delete-link:hover{
+
+    background-color: var(--accent);
+
+    border-color: var(--accent-hover);
+
+    color: white;
+
+}
+
+.delete-column{
+
+    width: 1%;
+
+}
+
+
+/*_______________________________________________________________________________________________________________________*/
+
 /*For all body's*/
 body{
 
-    background-color: #f5f0e8;
+    background: linear-gradient(to bottom, #f5f0e8, #d7c7b4, #8b6f55);
 
     color: var(--text-primary);
 
@@ -34,6 +91,8 @@ body{
 
     /*100% of the screen*/
     min-height: 100vh;
+
+    margin: 0;
 
 }
 
@@ -68,7 +127,7 @@ body{
 
     gap: 20px;
 
-    padding: 10px;
+    padding: 5px;
 
     color: white;
 
@@ -83,7 +142,7 @@ body{
 
     display: flex;
 
-    padding: 10px;
+    padding: 5px;
 
     color: white;
 
@@ -104,7 +163,7 @@ body{
 
     gap: 20px;
 
-    padding: 10px;
+    padding: 5px;
 
     color: white;
 
@@ -148,17 +207,85 @@ body{
 
 .container-table-one{
 
-    background: linear-gradient(to right, #d7c7b4 0%, #8b6f55 50%, #3b2f2f 100%);
+    background-color: #2d5a3d;
 
     box-shadow: var(--shadow);
+
+    padding: 10px;
+
+    text-align: center;
+
+    margin: 15px;
+
+    color:#d7c7b4;
+
+    font-size: larger;
 
 }
 
 
+
 .container-table-two{
 
-    background: linear-gradient(to left, #d7c7b4 0%, #8b6f55 50%, #3b2f2f 100%);
+    background-color: #3a7a50;
 
     box-shadow: var(--shadow);
+
+    padding: 10px;
+
+    text-align: center;
+
+    margin: 15px;
+
+    color:#d7c7b4;
+
+    font-size: larger;
+
+}
+
+
+table{
+
+    width: 95%;
+
+    margin: 5px;
+
+    /*2 shadows stacked together. First one sits bellow the table with a soft shadow at 25% opacity*/
+    /*The second one is right behind the element witha  softer glow that is faint*/
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25),0 0 6px rgba(0, 0, 0, 0.15);
+
+    /*Make all the boxes merge together*/
+    border-collapse: collapse;
+
+
+}
+
+
+th{
+
+    background-color: #1B2A22;
+
+    padding: 10px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    color: white;
+
+}
+
+
+td{
+
+    background-color: rgba(255,255,255,0.08);
+
+    padding: 10px;
+
+    overflow-wrap: break-word;
+    
+    max-width: 200px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    color: white;
 
 }
